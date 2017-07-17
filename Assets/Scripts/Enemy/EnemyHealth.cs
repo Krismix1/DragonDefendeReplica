@@ -8,10 +8,10 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField]
     private float defense = 15f;
 
-    public Slider healthSlider;
-    public Canvas healthCanvas;
+    private Slider healthSlider;
 
     private void Start() {
+        healthSlider = GetComponentInChildren<Slider>();
         healthSlider.maxValue = health;
         healthSlider.value = health;
         HideSlider();
