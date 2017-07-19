@@ -7,7 +7,7 @@ public class ArrowShooter : MonoBehaviour {
     public int firingRate = 2;
     private float fireCooldown = 0f;
 
-    private float arrowDamage = 10f;
+    private int arrowDamage = 10;
 
     void Update() {
         fireCooldown += Time.deltaTime;
@@ -27,7 +27,7 @@ public class ArrowShooter : MonoBehaviour {
         }
     }
 
-    public void AddArrowDamage(float amount) {
+    public void AddArrowDamage(int amount) {
         arrowDamage += amount;
     }
 

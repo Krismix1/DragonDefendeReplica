@@ -3,7 +3,7 @@
 public class EnemyMeleeAttack : MonoBehaviour {
 
     public float attackRange = .5f;
-    public float damage = 10f;
+    public int damage = 10;
     public float timeBetweenAttacks = .5f;
     public LayerMask castleLayer;
 
@@ -39,6 +39,6 @@ public class EnemyMeleeAttack : MonoBehaviour {
         attackTimer = 0;
         anim.SetBool("IsAttacking", true);
         isWalking = false;
-        Debug.Log("Castle health: " + coll.gameObject.GetComponent<CastleHealth>().TakeDamage(damage));
+        coll.gameObject.GetComponent<CastleHealth>().TakeDamage(damage);
     }
 }

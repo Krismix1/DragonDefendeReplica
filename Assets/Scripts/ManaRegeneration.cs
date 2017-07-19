@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class ManaRegeneration : MonoBehaviour {
 
-    public float manaMaxValue = 100f;
+    public int manaMaxValue = 100;
     public Slider manaSlider;
     public Text manaValueText;
     public float manaRegenSpeed = 1f; // The speed of mana regeneration
-    public float manaRegenValue = 1f;
+    public int manaRegenAmount = 1;
 
-    private float currentMana;
+    private int currentMana;
     private float manaRegenTimer = 0f;
 
 	// Use this for initialization
@@ -23,8 +23,8 @@ public class ManaRegeneration : MonoBehaviour {
         manaRegenTimer += Time.deltaTime;
         if(currentMana < manaMaxValue && manaRegenTimer >= 1 / manaRegenSpeed) {
             manaRegenTimer = 0;
-            if (currentMana + manaRegenValue <= manaMaxValue) {
-                currentMana += manaRegenValue;
+            if (currentMana + manaRegenAmount <= manaMaxValue) {
+                currentMana += manaRegenAmount;
             }
             else {
                 currentMana = manaMaxValue;

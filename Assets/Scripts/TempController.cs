@@ -17,12 +17,12 @@ public class TempController : MonoBehaviour {
     }
 
     public void AddDamage() {
-        float dmgToAdd = float.Parse(dmgInput.text);
+        int dmgToAdd = int.Parse(dmgInput.text);
         arrowShooter.AddArrowDamage(dmgToAdd);
     }
 
     public void RemoveDamage() {
-        float dmgToRemove = float.Parse(dmgInput.text);
+        int dmgToRemove = int.Parse(dmgInput.text);
         arrowShooter.AddArrowDamage(-dmgToRemove);
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour {
 
     [SerializeField]
-    private float health = 100;
+    private int health = 100;
     [SerializeField]
-    private float defense = 15f;
+    private int defense = 15;
 
     private Slider healthSlider;
 
@@ -27,7 +27,7 @@ public class EnemyHealth : MonoBehaviour {
         healthSlider.value = health;
     }
 
-    public float TakeDamage(float damage) {
+    public int TakeDamage(int damage) {
 
         if (health > 0) {
             healthSlider.gameObject.SetActive(true);

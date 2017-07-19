@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Bow\ArrowDamage.cs" />
     <Compile Include="Assets\Scripts\Bow\ArrowMovement.cs" />
     <Compile Include="Assets\Scripts\Bow\ArrowShooter.cs" />
+    <Compile Include="Assets\Scripts\Bow\ArrowStats.cs" />
     <Compile Include="Assets\Scripts\Bow\BowRotation.cs" />
     <Compile Include="Assets\Scripts\CastleHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />

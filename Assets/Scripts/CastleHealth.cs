@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class CastleHealth : MonoBehaviour {
 
-    public float startingHealth = 1000f;
+    public int startingHealth = 1000;
     public Slider healthSlider;
     public Text healthText;
 
-    private float currentHealth;
+    private int currentHealth;
 
     private void Start() {
         currentHealth = startingHealth;
@@ -27,7 +27,7 @@ public class CastleHealth : MonoBehaviour {
         healthSlider.value = currentHealth;
     }
 
-    public float TakeDamage(float amount) {
+    public int TakeDamage(int amount) {
         if (currentHealth > 0) {
             currentHealth -= amount;
         }

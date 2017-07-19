@@ -16,6 +16,10 @@ public class EnemyMovement : MonoBehaviour {
             Vector3 nextPos = transform.position;
             nextPos.x -= movingSpeed * Time.deltaTime;
             rb2D.MovePosition(Vector2.Lerp(nextPos, transform.position, 0));
+
+            //rb2D.AddForce(Vector2.left * 10 * Time.deltaTime, ForceMode2D.Impulse);
+
+            //rb2D.velocity = Vector2.left * 100 * Time.deltaTime;
         }
     }
 }
