@@ -4,13 +4,13 @@ public class ArrowDamage : MonoBehaviour {
 
     public int arrowDamage = 10;
     public float pushBackForce = 10f;
-
-    public GameObject criticalHitIconPrefab;
-    public Vector3 criticalHitIconOffset;
-
+    [Space]
     public float criticalDamageMultiplier = 2f;
     [Range(0, 100)]
     public int criticalChance = 10;
+    [Space]
+    public GameObject criticalHitIconPrefab;
+    public Vector3 criticalHitIconOffset;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.tag == "Enemy") {
@@ -22,13 +22,14 @@ public class ArrowDamage : MonoBehaviour {
             else {
                 DoDamage(collision.gameObject, arrowDamage);
             }
-            //PushBack(collision.gameObject.GetComponent<Rigidbody2D>(), pushBackForce);
+            PushBack(collision.gameObject.GetComponent<Rigidbody2D>(), pushBackForce);
             Destroy(gameObject);
         }
     }
 
     private void PushBack(Rigidbody2D rb, float forceAmount) {
-        rb.AddForce(Vector2.right * forceAmount, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.right * 50, ForceMode2D.Impulse);
+        //rb.velocity *= -1;
     }
 
     private void DoCriticalDamage(GameObject enemy, int damage, float criticalMultiplier) {

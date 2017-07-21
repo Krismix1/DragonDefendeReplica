@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyProjectile.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRangeAttack.cs" />
     <Compile Include="Assets\Scripts\LevelStarter.cs" />
     <Compile Include="Assets\Scripts\ManaRegeneration.cs" />
