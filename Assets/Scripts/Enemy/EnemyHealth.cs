@@ -9,12 +9,18 @@ public class EnemyHealth : MonoBehaviour {
     private int defense = 15;
 
     private Slider healthSlider;
+    //private Animator anim;
 
     private void Start() {
-        healthSlider = GetComponentInChildren<Slider>();
+        //healthSlider = GetComponentInChildren<Slider>();
+        //healthSlider = FindObjectOfType<Canvas>().GetComponentInChildren<Slider>();
+        //healthSlider = FindObjectOfType<Slider>();
+
         healthSlider.maxValue = health;
         healthSlider.value = health;
         HideSlider();
+
+        //anim = GetComponentInChildren<Animator>();
     }
 
     private void Update() {
@@ -34,15 +40,22 @@ public class EnemyHealth : MonoBehaviour {
             CancelInvoke("HideSlider");
             Invoke("HideSlider", .5f);
             health = health - damage * (1 - defense / 100);
+
+            //anim.SetTrigger("IsHit");
         }
         return health;
     }
 
     void Die() {
+        Destroy(healthSlider.gameObject);
         Destroy(gameObject);
     }
 
     void HideSlider() {
         healthSlider.gameObject.SetActive(false);
+    }
+
+    public void SetHealthSlider(Slider slider) {
+        healthSlider = slider;
     }
 }
