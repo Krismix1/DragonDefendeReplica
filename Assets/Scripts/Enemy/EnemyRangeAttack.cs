@@ -7,9 +7,11 @@ public class EnemyRangeAttack : MonoBehaviour {
 
     private float attackTimer = 0;
     private EnemyMovement movement;
+    private Animator anim;
 
     private void Start() {
-        movement = GetComponent<EnemyMovement>();
+        movement = GetComponentInParent<EnemyMovement>();
+        anim = transform.parent.gameObject.GetComponentInChildren<Animator>();
     }
 
     private void Update() {
@@ -21,6 +23,7 @@ public class EnemyRangeAttack : MonoBehaviour {
 
     void Attack() {
         attackTimer = 0;
-        Instantiate(projectilePrefab);
+        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        anim.SetBool("IsAttacking", true);
     }
 }

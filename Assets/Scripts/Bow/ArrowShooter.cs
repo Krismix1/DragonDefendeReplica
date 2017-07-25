@@ -7,8 +7,6 @@ public class ArrowShooter : MonoBehaviour {
     public int firingRate = 2;
     private float fireCooldown = 0f;
 
-    private int arrowDamage = 10;
-
     void Update() {
         fireCooldown += Time.deltaTime;
         if (Input.GetMouseButton(0)) {
@@ -22,16 +20,7 @@ public class ArrowShooter : MonoBehaviour {
     void Fire() {
         if (fireCooldown >= 1f / firingRate) {
             fireCooldown = 0;
-            GameObject arrowGO = Instantiate(arrowPrefab, transform.position, transform.rotation);
-            arrowGO.GetComponent<ArrowDamage>().arrowDamage = arrowDamage;
+            Instantiate(arrowPrefab, transform.position, transform.rotation);
         }
-    }
-
-    public void AddArrowDamage(int amount) {
-        arrowDamage += amount;
-    }
-
-    public float GetArrowDamage() {
-        return arrowDamage;
     }
 }

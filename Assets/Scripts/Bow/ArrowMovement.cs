@@ -14,6 +14,7 @@ public class ArrowMovement : MonoBehaviour {
 
     void FixedUpdate() {
         rb2D.AddForce(transform.rotation * Vector2.right * arrowSpeed, ForceMode2D.Impulse);
+        //rb2D.velocity = transform.rotation * Vector2.right * arrowSpeed;
         //Vector3 pos = transform.position;
 
         //Vector3 velocity = new Vector3(0, arrowSpeed * Time.deltaTime, 0);

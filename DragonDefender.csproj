@@ -83,14 +83,16 @@
     <Compile Include="Assets\Scripts\Bow\ArrowShooter.cs" />
     <Compile Include="Assets\Scripts\Bow\ArrowStats.cs" />
     <Compile Include="Assets\Scripts\Bow\BowRotation.cs" />
-    <Compile Include="Assets\Scripts\CastleHealth.cs" />
+    <Compile Include="Assets\Scripts\Castle\CastleHealth.cs" />
+    <Compile Include="Assets\Scripts\Castle\ManaRegeneration.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMeleeAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyProjectile.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRangeAttack.cs" />
     <Compile Include="Assets\Scripts\LevelStarter.cs" />
-    <Compile Include="Assets\Scripts\ManaRegeneration.cs" />
+    <Compile Include="Assets\Scripts\Managers\StatsManager.cs" />
+    <Compile Include="Assets\Scripts\PID.cs" />
     <Compile Include="Assets\Scripts\TempController.cs" />
     <Compile Include="Assets\Scripts\UIAnchor.cs" />
   </ItemGroup>

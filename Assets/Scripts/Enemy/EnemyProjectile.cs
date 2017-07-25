@@ -3,7 +3,7 @@
 public class EnemyProjectile : MonoBehaviour {
 
     public int damage = 20;
-    public float movingSpeed = 2f;
+    public float movingSpeed = 4f;
 
     private Rigidbody2D rb2D;
 
@@ -12,11 +12,11 @@ public class EnemyProjectile : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        rb2D.velocity = Vector2.left * movingSpeed;
+        //rb2D.velocity = Vector2.left * movingSpeed;
+        rb2D.AddForce(Vector2.left * movingSpeed, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log("test");
         if (collision.transform.tag == "Castle") {
             collision.gameObject.GetComponent<CastleHealth>().TakeDamage(damage);
             Destroy(gameObject);

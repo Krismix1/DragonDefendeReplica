@@ -6,9 +6,12 @@ public class EnemyMovement : MonoBehaviour {
     public float movingSpeed = 0.5f;
 
     private Rigidbody2D rb2D;
+    private Animator anim;
+    private bool isWalking;
 
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     void FixedUpdate() {
@@ -19,10 +22,19 @@ public class EnemyMovement : MonoBehaviour {
 
             //rb2D.AddForce(Vector2.left * 10 * Time.deltaTime, ForceMode2D.Impulse);
 
-            rb2D.velocity = Vector2.left * 100 * Time.deltaTime;
+            //rb2D.velocity = Vector2.left * 100 * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, finalPosition, movingSpeed * Time.deltaTime);
+            if (!isWalking) {
+                isWalking = true;
+                anim.SetBool("IsIdle", false);
+            }
         }
         else {
             rb2D.velocity = Vector2.zero;
+            if (isWalking) {
+                isWalking = false;
+                anim.SetBool("IsIdle", true);
+            }
         }
     }
 
