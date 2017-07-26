@@ -24,22 +24,16 @@ public class EnemyMovement : MonoBehaviour {
 
             //rb2D.velocity = Vector2.left * 100 * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, finalPosition, movingSpeed * Time.deltaTime);
-            if (!isWalking) {
-                isWalking = true;
-                anim.SetBool("IsIdle", false);
-            }
+            anim.SetBool("IsWalking", true);
         }
         else {
             rb2D.velocity = Vector2.zero;
-            if (isWalking) {
-                isWalking = false;
-                anim.SetBool("IsIdle", true);
-            }
+            anim.SetBool("IsWalking", false);
         }
     }
 
     public bool IsAtFinalPosition {
-        get { 
+        get {
             return transform.position.x <= finalPosition.x;
         }
     }

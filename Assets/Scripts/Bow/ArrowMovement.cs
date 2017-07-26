@@ -11,6 +11,11 @@ public class ArrowMovement : MonoBehaviour {
         rb2D = GetComponent<Rigidbody2D>();
     }
 
+    private void Update() {
+        if (ShouldDestroy()) {
+            Destroy(gameObject);
+        }
+    }
 
     void FixedUpdate() {
         rb2D.AddForce(transform.rotation * Vector2.right * arrowSpeed, ForceMode2D.Impulse);
@@ -22,5 +27,9 @@ public class ArrowMovement : MonoBehaviour {
         //pos += transform.rotation * velocity;
 
         //transform.position = pos;
+    }
+
+    bool ShouldDestroy() {
+        return transform.position.x >= 35;
     }
 }
