@@ -8,9 +8,6 @@ public class ArrowDamage : MonoBehaviour {
     public float criticalDamageMultiplier = 2f;
     [Range(0, 100)]
     public int criticalChance = 10;
-    [Space]
-    public GameObject criticalHitIconPrefab;
-    public Vector3 criticalHitIconOffset;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Enemy") {
@@ -33,8 +30,7 @@ public class ArrowDamage : MonoBehaviour {
 
     private void DoCriticalDamage(GameObject enemy, int damage, float criticalMultiplier) {
         int criticalDamage = Mathf.RoundToInt(damage * criticalDamageMultiplier);
-        GameObject criticalIcon = Instantiate(criticalHitIconPrefab, enemy.transform.position + criticalHitIconOffset, Quaternion.identity);
-        Destroy(criticalIcon, .2f);
+        enemy.GetComponentInChildren<CriticalIcon>().ShowAndHideIcon();
         DoDamage(enemy, criticalDamage);
     }
 
