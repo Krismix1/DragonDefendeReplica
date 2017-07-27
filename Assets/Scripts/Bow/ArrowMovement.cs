@@ -30,6 +30,9 @@ public class ArrowMovement : MonoBehaviour {
     }
 
     bool ShouldDestroy() {
-        return transform.position.x >= 35;
+        Camera cam = Camera.main;
+        bool result = cam.orthographicSize + 4 < Mathf.Abs(transform.position.y);
+        result = result || cam.aspect * cam.orthographicSize * 2f + 2 < transform.position.x;
+        return result;
     }
 }
